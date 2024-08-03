@@ -1,4 +1,3 @@
-![api_yatube](https://shulikin.com/images/Api.png)
 # Проект «API для Yatube»
 API инструмент расширяющий возможности социальной сети «Yatube».  
 Авторизованные пользователи могут создавать посты, комментировать весь контент и подписываться на других пользователей.  
@@ -51,7 +50,7 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
-![api_yatube](https://shulikin.com/images/ok.png)  
+![api_yatube](https://shulikin.com/images/Api.png)
 
 ## API endpoint:
 ### Любой пользователь:  
@@ -115,65 +114,36 @@ POST /api/v1/jwt/refresh/
 ```
 POST /api/v1/jwt/verify/  
 ```
-
-
-
-
-
-
-
-http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
-
-
-
- - создание публикации
+## Несколько примеров API запроса:
+- создание публикации
 ```
-POST /api/v1/posts/
+POST /api/v1/posts/ 
+в body { "text": "string", "image": "string", "group": 0 }
 ```
 - обновление публикации
 ```
 PUT /api/v1/posts/{id}/ 
-```
-- частичное обновление публикации  
-```
-PATCH /api/v1/posts/{id}/  
-```
-- удаление публикации  
-```
-DEL /api/v1/posts/{id}/  
-```
-http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
-
-
-
-Авторизованные пользователи могут создавать посты, комментировать их и подписываться на других пользователей.
-```
-POST /api/v1/posts/ - создание публикации
 в body { "text": "string", "image": "string", "group": 0 }
-
-PUT /api/v1/posts/{id}/ - обновление публикации
+```
+- частичное обновление публикации
+```
+PATCH /api/v1/posts/{id}/ 
 в body { "text": "string", "image": "string", "group": 0 }
-
-PATCH /api/v1/posts/{id}/ - частичное обновление публикации
-в body { "text": "string", "image": "string", "group": 0 }
-
-DEL /api/v1/posts/{id}/ - удаление публикации
 ```
-## Добавить группу в проект нужно через админ панель Django:
+- удаление публикации
 ```
-admin/ - после авторизации, переходим в раздел Groups и создаем группы
+DEL /api/v1/posts/{id}/ 
 ```
-Доступ авторизованным пользователем доступен по JWT-токену
+- получение токена
 ```
-POST /api/v1/jwt/create/ - получение токена
-
-{
-"username": "string",
-"password": "string"
-}
-
-POST /api/v1/jwt/refresh/ - обнорвление токена
-POST /api/v1/jwt/verify/ - проверка токена
+POST /api/v1/jwt/create/ 
+в body { "username": "string", "password": "string" }
 ```
-
-Также в проекте реализована пагинация(LimitOffsetPagination).
+- обнорвление токена  
+```
+POST /api/v1/jwt/refresh/  
+```
+- проверка токена  
+```
+POST /api/v1/jwt/verify/  
+```
