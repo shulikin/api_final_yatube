@@ -88,6 +88,36 @@ PUT /api/v1/posts/{id}/
 PATCH /api/v1/posts/{id}/  
 DEL /api/v1/posts/{id}/  
 ```
+- комментарии
+```
+POST /api/v1/posts/{post_id}/comments/)  
+PUT /api/v1/posts/{post_id}/comments/{id}/)  
+PATCH /api/v1/posts/{post_id}/comments/{id}/)  
+DEL /api/v1/posts/{post_id}/comments/{id}/)
+```
+- подписки пользователя, сделавшего запрос
+```
+GET api/v1/follow/  
+```
+- подписка пользователя от имени которого сделан запрос на пользователя переданного в теле запроса
+```
+POST api/v1/follow/  
+```
+- получение токена  
+```
+POST /api/v1/jwt/create/  
+```
+- обнорвление токена  
+```
+POST /api/v1/jwt/refresh/  
+```
+- проверка токена  
+```
+POST /api/v1/jwt/verify/  
+```
+
+
+
 
 
 
@@ -95,10 +125,7 @@ DEL /api/v1/posts/{id}/
 http://127.0.0.1:8000/api/v1/posts/{post_id}/comments/
 
 
-- получение подписок текущего пользователя
-```
-GET api/v1/follow/  
-```
+
  - создание публикации
 ```
 POST /api/v1/posts/
