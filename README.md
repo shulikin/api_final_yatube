@@ -143,8 +143,10 @@ POST /api/v1/jwt/create/
 - обнорвление токена  
 ```
 POST /api/v1/jwt/refresh/  
+в body { "refresh": "string" }  
 ```
 - проверка токена  
 ```
 POST /api/v1/jwt/verify/  
+в body { "token": "string" }  
 ```
