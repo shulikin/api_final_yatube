@@ -5,7 +5,7 @@ API инструмент расширяющий возможности соци�
 В иных случаях доступ предоставляется только для чтения.  
 ## Технологии
 ![api_yatube](https://shulikin.com/images/py.png) ![api_yatube](https://shulikin.com/images/django.png) ![api_yatube](https://shulikin.com/images/jwt.png) ![api_yatube](https://shulikin.com/images/rest.png)
-## Установка и запуск::
+## Установка и запуск:
 1.Клонировать репозиторий и перейти к проекту:
 ```
 git clone https://github.com/shulikin/api_yatube.git && cd api_yatube
@@ -35,40 +35,25 @@ source venv/Scripts/activate
 ```
 source venv/bin/activate
 ```
-
-```
-python3 -m venv venv
-```
-- Если у вас Linux/macOS
-
-```
-source venv/bin/activate
-```
-
-
+4.Обновите менеджер пакетов:
 ```
 python -m pip install --upgrade pip
 ```
-
-
-
-Установить зависимости из файла requirements.txt:
-
+5.Установить зависимости из файла requirements.txt:
 ```
 pip install -r requirements.txt
 ```
-Выполнить миграции:
-
+6.Выполнить миграции:
 ```
 python manage.py migrate
 ```
-Запустить проект:
-
+7.Запустить проект:
 ```
 python manage.py runserver
 ```
-![This is an image](https://myoctocat.com/assets/images/base-octocat.svg)
-По умолчанию для неавторизованных пользователей проект доступен только для чтения.
+![api_yatube](https://shulikin.com/images/ok.png)  
+
+## API endpoint:
 ```
 GET api/v1/posts/ - получить список всех публикаций.
 При указании параметров limit и offset выдача должна работать с пагинацией
