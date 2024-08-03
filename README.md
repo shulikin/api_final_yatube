@@ -1,7 +1,7 @@
 ![api_yatube](https://shulikin.com/images/Api.png)
 # Проект «API для Yatube»
 API инструмент расширяющий возможности социальной сети «Yatube».  
-Позволяет аутентифицированным пользователям публиковать, изменять и удалять контент и комментарии, и иметь возможность подписываться на других авторов.  
+Авторизованные пользователи могут создавать посты, комментировать их и подписываться на других пользователей.  
 В иных случаях доступ предоставляется только для чтения.  
 ## Технологии
 ![api_yatube](https://shulikin.com/images/py.png) ![api_yatube](https://shulikin.com/images/django.png) ![api_yatube](https://shulikin.com/images/jwt.png) ![api_yatube](https://shulikin.com/images/rest.png)
