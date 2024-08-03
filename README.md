@@ -54,7 +54,7 @@ python manage.py runserver
 ![api_yatube](https://shulikin.com/images/ok.png)  
 
 ## API endpoint:
-# Любой пользователь:  
+### Любой пользователь:  
 - получить список всех публикаций
 - при указании параметров limit и offset выдача должна работать с пагинацией
 ```
