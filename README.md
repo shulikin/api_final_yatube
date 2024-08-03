@@ -51,7 +51,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## ![api_yatube](https://shulikin.com/images/aend.png) endpoint:
+## ![api_yatube](https://shulikin.com/images/aend.png)
 ### Любой пользователь:  
 - получить список всех публикаций
 - при указании параметров limit и offset выдача должна работать с пагинацией
