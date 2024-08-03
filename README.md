@@ -51,7 +51,9 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-## ![api_yatube](https://shulikin.com/images/aend.png)
+## ![api_yatube](https://shulikin.com/images/aend.png)  
+Задача API — обеспечить доступ к информации.  
+  
 ### Любой пользователь:  
 - получить список всех публикаций
 - при указании параметров limit и offset выдача должна работать с пагинацией
