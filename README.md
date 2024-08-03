@@ -1,6 +1,9 @@
 ![api_yatube](https://shulikin.com/images/Api.png)
 # Проект «API для Yatube»
-API для сервиса yatube. Позволяет запрашивать данные о постах, группах и комментариях в социальной сети Yatube, а также управлять ими.
+API инструмент расширяющий возможности социальной сети «Yatube».
+Позволяет аутентифицированным пользователям публиковать, изменять и удалять контент и комментарии, и иметь возможность подписываться на других авторов.
+В иных случаях доступ предоставляется только для чтения.
+
 ## Технологии
 ![api_yatube](https://shulikin.com/images/py.png) ![api_yatube](https://shulikin.com/images/django.png) ![api_yatube](https://shulikin.com/images/jwt.png) ![api_yatube](https://shulikin.com/images/rest.png)
 ## Как запустить
