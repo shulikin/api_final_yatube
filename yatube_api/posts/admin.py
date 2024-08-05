@@ -32,7 +32,7 @@ class FollowAdmin(admin.ModelAdmin):
     empty_value_display = '-пусто-'
 
 
-admin.site.register(Post)
-admin.site.register(Comment)
-admin.site.register(Group)
-admin.site.register(Follow)
+admin.site.register(Post, PostAdmin)
+admin.site.register(Comment, CommentAdmin)
+admin.site.register(Group, GroupAdmin)
+admin.site.register(Follow, FollowAdmin)

@@ -1,34 +1,42 @@
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import UniqueConstraint
+
+DISPLAY_POSTS: int = 10
+DISPLAY_COMMENTS: int = 15
 
 User = get_user_model()
 
 
 class Group(models.Model):
     title = models.CharField(
+        'Сообщество',
         max_length=200,
-        verbose_name='Сообщество',
         help_text=(
             'Может состоять из символов латиницы и кириллицы, '
             'а также содержать цифры. Не более 200 символов.'
         ),
     )
     slug = models.SlugField(
+        'Идентификатор',
         unique=True,
         max_length=50,
-        verbose_name='Идентификатор',
         help_text=(
             'Может состоять только из символов латиницы в нижнем '
             'регистре, а также цифр. Не более 50 символов.'
         ),
     )
     description = models.TextField(
-        verbose_name='Описание сообщества',
+        'Описание сообщества',
         help_text=(
             'Краткое описание.'
         ),
     )
+
+    class Meta:
+        verbose_name = 'сообщество'
+        verbose_name_plural = 'Сообщества'
 
     def __str__(self):
         return self.title
@@ -36,7 +44,7 @@ class Group(models.Model):
 
 class Post(models.Model):
     text = models.TextField(
-        verbose_name='Текст публикации',
+        'Текст публикации',
         help_text=(
             'Обязательное поле.'
         ),
@@ -59,10 +67,9 @@ class Post(models.Model):
         ),
     )
     image = models.ImageField(
+        'Изображение',
         upload_to='posts/',
-        null=True,
         blank=True,
-        verbose_name='Изображение',
         help_text='Изображение для поста.',
     )
     group = models.ForeignKey(
@@ -75,9 +82,11 @@ class Post(models.Model):
 
     class Meta:
         ordering = ('pub_date',)
+        verbose_name = 'публикация'
+        verbose_name_plural = 'Публикации'
 
     def __str__(self):
-        return self.text[:10]
+        return self.text[:DISPLAY_POSTS]
 
 
 class Comment(models.Model):
@@ -99,7 +108,7 @@ class Comment(models.Model):
         help_text='Публикация к которой создан комментарий.',
     )
     text = models.TextField(
-        verbose_name='Текст комментария',
+        'Текст комментария',
         help_text='Добавление нового комментария к публикации.',
     )
     created = models.DateTimeField(
@@ -112,8 +121,12 @@ class Comment(models.Model):
         ),
     )
 
+    class Meta:
+        verbose_name = 'комментарий'
+        verbose_name_plural = 'Комментарии'
+
     def __str__(self):
-        return self.text[:15]
+        return self.text[:DISPLAY_COMMENTS]
 
 
 class Follow(models.Model):
@@ -130,13 +143,19 @@ class Follow(models.Model):
         verbose_name='Автор',
     )
 
-    class Meta():
+    class Meta:
+        verbose_name = 'подписка'
+        verbose_name_plural = 'Подписки'
         constraints = (
             UniqueConstraint(
                 fields=('user', 'following'),
                 name='unique_follow',
             ),
         )
+
+    def clean(self):
+        if self.user == self.following:
+            raise ValidationError('Действие недопустимо!')
 
     def __str__(self):
         return f'{self.user.username} подписка {self.following.username}'
